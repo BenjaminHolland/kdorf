@@ -1,0 +1,7 @@
+src/main/resources/secure.json
+.gradle
+.idea
+build
+gradle
+gradlew
+gradlew.bat
