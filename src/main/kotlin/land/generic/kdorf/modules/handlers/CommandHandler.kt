@@ -1,16 +1,15 @@
-package land.generic.kdorf.modules.commands
+package land.generic.kdorf.modules.handlers
 
 import dev.kord.core.event.message.MessageCreateEvent
 import land.generic.kdorf.DorfCommandContext
 import land.generic.kdorf.components.DorfCommandComponent
-import land.generic.kdorf.modules.handlers.MessageHandler
 import land.generic.kdorf.parsing.ArgumentTokenizer
 import javax.inject.Inject
 import javax.inject.Provider
 import javax.inject.Singleton
 
 @Singleton
-class DorfCommandHandler @Inject constructor(
+class CommandHandler @Inject constructor(
     private val commandContextProvider: Provider<DorfCommandComponent.Builder>
 ) : MessageHandler {
     override fun canHandle(event: MessageCreateEvent): Boolean {

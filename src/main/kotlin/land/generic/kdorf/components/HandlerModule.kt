@@ -1,13 +1,11 @@
 package land.generic.kdorf.components
 
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.multibindings.IntoMap
 import dagger.multibindings.StringKey
-import land.generic.kdorf.DorfCommandContext
 import land.generic.kdorf.modules.CommonWords
-import land.generic.kdorf.modules.commands.DorfCommandHandler
+import land.generic.kdorf.modules.handlers.CommandHandler
 import land.generic.kdorf.modules.handlers.AutoResponseHandler
 import land.generic.kdorf.modules.handlers.MessageHandler
 import land.generic.kdorf.modules.handlers.TiktokHandler
@@ -20,7 +18,7 @@ class HandlerModule {
     @IntoMap
     @StringKey("command")
     fun provideCommandHandler(commandContextProvider: Provider<DorfCommandComponent.Builder>): MessageHandler =
-        DorfCommandHandler(commandContextProvider)
+        CommandHandler(commandContextProvider)
 
     @Provides
     @IntoMap

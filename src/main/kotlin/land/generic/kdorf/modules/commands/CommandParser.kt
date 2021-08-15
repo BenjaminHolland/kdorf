@@ -3,7 +3,7 @@ package land.generic.kdorf.modules.commands
 import land.generic.kdorf.parsing.ArgParser
 import javax.inject.Inject
 
-class DorfCommandParser @Inject constructor(
+class CommandParser @Inject constructor(
     private val echo: EchoCommand,
     private val zalgo: ZalgoCommand,
     private val wiggle: WiggleCommand
