@@ -23,7 +23,7 @@ class ZalgoTransformer @Inject constructor(val chaos: Random) {
 }
 
 
-val CHAR_UP = listOf(
+private val CHAR_UP = listOf(
     '\u030D', '\u030E', '\u0304', '\u0305', '\u033F',
     '\u0311', '\u0306', '\u0310', '\u0352', '\u0357',
     '\u0351', '\u0307', '\u0308', '\u030A', '\u0342',
@@ -36,7 +36,7 @@ val CHAR_UP = listOf(
     '\u036F', '\u033E', '\u035B', '\u0346', '\u031A'
 )
 
-val CHAR_MID = listOf(
+private val CHAR_MID = listOf(
     '\u0315', '\u031B', '\u0340', '\u0341', '\u0358',
     '\u0321', '\u0322', '\u0327', '\u0328', '\u0334',
     '\u0335', '\u0336', '\u034F', '\u035C', '\u035D',
@@ -44,7 +44,7 @@ val CHAR_MID = listOf(
     '\u0337', '\u0361', '\u0489'
 )
 
-val CHAR_DOWN = listOf(
+private val CHAR_DOWN = listOf(
     '\u0316', '\u0317', '\u0318', '\u0319', '\u031C',
     '\u031D', '\u031E', '\u031F', '\u0320', '\u0324',
     '\u0325', '\u0326', '\u0329', '\u032A', '\u032B',
@@ -55,7 +55,7 @@ val CHAR_DOWN = listOf(
     '\u0355', '\u0356', '\u0359', '\u035A', '\u0323'
 )
 
-val CHAR_SIMPLE = listOf(
+private val CHAR_SIMPLE = listOf(
     '\u0300',
     '\u0301', '\u0302', '\u0303', '\u0304', '\u0305', '\u0306', '\u0307', '\u0308', '\u0309', '\u0310',
     '\u0311', '\u0312', '\u0313', '\u0314', '\u0315', '\u0316', '\u0317', '\u0318', '\u0319', '\u0320',
@@ -64,12 +64,4 @@ val CHAR_SIMPLE = listOf(
     '\u0341', '\u0342', '\u0343', '\u0344', '\u0345', '\u0346', '\u0347', '\u0348', '\u0349', '\u0350',
     '\u0351', '\u0352', '\u0353', '\u0354', '\u0355', '\u0356', '\u0357', '\u0358', '\u0359', '\u0360',
     '\u036A', '\u036B', '\u036C', '\u036D', '\u036E', '\u036F'
-)
-
-val ZalgoCharacterSet = CharacterSet(
-    CharacterSet.LATIN_ALL.codePoints +
-            CHAR_SIMPLE.map { it.code }.toIntArray() +
-            CHAR_DOWN.map { it.code }.toIntArray() +
-            CHAR_UP.map { it.code }.toIntArray() +
-            CHAR_MID.map { it.code }.toIntArray()
 )

@@ -3,20 +3,11 @@ package land.generic.kdorf
 import dev.kord.core.Kord
 import dev.kord.core.event.message.MessageCreateEvent
 import dev.kord.core.on
-import land.generic.kdorf.components.DorfCommandComponent
 import land.generic.kdorf.modules.handlers.MessageHandler
 import land.generic.kdorf.modules.kord.KordProvider
-import land.generic.kdorf.parsing.ArgumentTokenizer
-import java.time.OffsetDateTime
 import javax.inject.Inject
-import javax.inject.Provider
 import kotlin.random.Random
 
-
-class DorfCommandContext(
-    var messageCreateEvent: MessageCreateEvent,
-    var stop: Boolean
-)
 
 @JvmSuppressWildcards
 class DorfApp @Inject constructor(

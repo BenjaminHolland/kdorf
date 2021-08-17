@@ -4,24 +4,18 @@ import com.soywiz.korim.bitmap.Bitmap32
 import com.soywiz.korim.bitmap.context2d
 import com.soywiz.korim.font.*
 import com.soywiz.korim.format.*
-import com.soywiz.korim.text.TextAlignment
-import com.soywiz.korio.file.Vfs
-import com.soywiz.korio.file.VfsFile
 import com.soywiz.korio.file.std.localVfs
 import com.soywiz.korio.file.std.resourcesVfs
-import com.soywiz.korio.lang.UTF8
 import dev.kord.core.behavior.channel.createMessage
-import land.generic.kdorf.DorfCommandContext
-import land.generic.kdorf.modules.zalgo.ZalgoCharacterSet
+import land.generic.kdorf.CommandContext
 import land.generic.kdorf.modules.zalgo.ZalgoTransformer
 import land.generic.kdorf.parsing.ArgType
 import land.generic.kdorf.parsing.Subcommand
 import land.generic.kdorf.parsing.default
 import java.io.File
-import java.io.FileInputStream
 import javax.inject.Inject
 
-class ZalgoCommand @Inject constructor(val context: DorfCommandContext, val zalgo: ZalgoTransformer) :
+class ZalgoCommand @Inject constructor(val context: CommandContext, val zalgo: ZalgoTransformer) :
     Subcommand("zalgo", "Generate spooky text.") {
     private val input by argument(ArgType.String, "input", "The text to spookify.")
     private val minUp by option(ArgType.Int, "minUp", shortName = "u").default(5)
@@ -44,7 +38,7 @@ class ZalgoCommand @Inject constructor(val context: DorfCommandContext, val zalg
         bmp.writeTo(dumbFile, formats = PNG)
 
         val inputStream = file.inputStream()
-        context.messageCreateEvent.message.channel.createMessage { this.addFile("zalgo.png", inputStream) }
+        context.event.message.channel.createMessage { this.addFile("zalgo.png", inputStream) }
 
     }
 }

@@ -1,7 +1,7 @@
 package land.generic.kdorf.modules.handlers
 
 import dev.kord.core.event.message.MessageCreateEvent
-import land.generic.kdorf.DorfCommandContext
+import land.generic.kdorf.CommandContext
 import land.generic.kdorf.components.DorfCommandComponent
 import land.generic.kdorf.parsing.ArgumentTokenizer
 import javax.inject.Inject
@@ -20,7 +20,7 @@ class CommandHandler @Inject constructor(
         val command = event.message.content.substring(1)
         val args = ArgumentTokenizer.tokenize(command, false)
         commandContextProvider.get().bindContext(
-            DorfCommandContext(event, false)
+            CommandContext(event)
         ).build().buildParser().parse(args)
     }
 }

@@ -2,7 +2,7 @@ package land.generic.kdorf.components
 
 import dagger.BindsInstance
 import dagger.Subcomponent
-import land.generic.kdorf.DorfCommandContext
+import land.generic.kdorf.CommandContext
 import land.generic.kdorf.modules.commands.CommandParser
 
 @CommandScope
@@ -13,7 +13,7 @@ interface DorfCommandComponent {
     @Subcomponent.Builder
     interface Builder {
         @BindsInstance
-        fun bindContext(context: DorfCommandContext): Builder
+        fun bindContext(context: CommandContext): Builder
         fun build(): DorfCommandComponent
     }
 

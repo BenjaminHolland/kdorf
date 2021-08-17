@@ -4,17 +4,13 @@ import dev.kord.core.behavior.channel.createEmbed
 import dev.kord.core.event.message.MessageCreateEvent
 import io.ktor.client.*
 import io.ktor.client.call.*
-import io.ktor.client.features.*
 import io.ktor.client.features.json.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
-import io.ktor.utils.io.jvm.javaio.*
-import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.JsonObject
-import land.generic.kdorf.DorfCommandContext
 
-class TiktokHandler() : MessageHandler {
+class TiktokHandler : MessageHandler {
     override fun canHandle(message: MessageCreateEvent): Boolean {
         return !(message.member?.isBot ?: true) && message.message.content.startsWith("https://www.tiktok.com/")
     }
@@ -43,12 +39,4 @@ class TiktokHandler() : MessageHandler {
             println(ex)
         }
     }
-
-
 }
-
-@Serializable
-data class TikTokEmbed(
-    val title: String,
-    val thumbnail_url: String
-)
