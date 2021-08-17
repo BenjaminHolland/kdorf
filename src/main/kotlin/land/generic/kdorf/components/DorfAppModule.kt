@@ -2,13 +2,14 @@ package land.generic.kdorf.components
 
 import dagger.Module
 import dagger.Provides
+import land.generic.kdorf.modules.chatting.ChatterModule
 import land.generic.kdorf.modules.settings.SettingsModule
 import javax.inject.Singleton
 import kotlin.random.Random
 
 @Module(
     subcomponents = [DorfCommandComponent::class],
-    includes = [SettingsModule::class, HandlerModule::class]
+    includes = [SettingsModule::class, HandlerModule::class, ChatterModule::class]
 )
 class DorfAppModule {
     @Provides

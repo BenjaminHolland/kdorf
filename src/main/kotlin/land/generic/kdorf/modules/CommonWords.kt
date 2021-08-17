@@ -2,7 +2,7 @@ package land.generic.kdorf.modules
 
 import land.generic.kdorf.utility.Resources
 import land.generic.kdorf.utility.Trie
-import java.io.StringReader
+import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
 

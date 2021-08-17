@@ -735,12 +735,14 @@ open class ArgParser(
             }
             // Parse arguments for subcommand.
             usedSubcommand?.let {
-                if (strictSubcommandOptionsOrder) {
+                val subresult = if (strictSubcommandOptionsOrder) {
                     it.parse(args.slice(argIterator.nextIndex() until args.size))
                 } else {
                     it.parse(subcommandsOptions + listOfNotNull("--".takeUnless { treatAsOption }) + subcommandsArguments)
                 }
-                it.execute()
+                if(subresult.commandName== it.programName) {
+                    it.execute()
+                }
                 parsingState = ArgParserResult(it.name)
 
                 return parsingState!!
