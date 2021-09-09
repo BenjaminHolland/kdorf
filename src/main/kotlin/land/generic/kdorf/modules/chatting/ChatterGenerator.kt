@@ -16,7 +16,7 @@ class ChatterGenerator @Inject constructor(
     private val chaos: Random,
     private val common: CommonWords
 ) {
-    val saveHandler = config.afterSet { _, _ -> config.toJson.toFile("C:/Users/Ben/dorf-chat.json") }
+    val saveHandler = config.afterSet { _, _ -> config.toJson.toFile("C:/Users/Benjamin/dorf-chat.json") }
     fun remember(word: String) {
         config[ChatterConfigSpec.vocab] = config[ChatterConfigSpec.vocab] + setOf(word)
     }
@@ -25,10 +25,16 @@ class ChatterGenerator @Inject constructor(
         val end = SENTENCE_ENDINGS.toList().randomWithWeights(SENTENCE_ENDINGS_WEIGHTS, chaos)
         val words = config[ChatterConfigSpec.vocab]
         return (List(count) {
-            if (chaos.nextBoolean())
+            if (chaos.nextBoolean()) {
                 common.lookup.random(chaos)
-            else
-                words.random(chaos)
+            }
+            else {
+                if(words.isNotEmpty()) {
+                    words.random(chaos)
+                }else{
+                    "derp"
+                }
+            }
         }.joinToString(" ") + end).let {
             it[0].uppercase() + it.substring(1)
         }

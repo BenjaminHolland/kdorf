@@ -1,4 +1,8 @@
 package land.generic.kdorf.modules.settings
 
-class GoogleConfig {
-}
+import javax.inject.Qualifier
+
+@Qualifier
+@Retention(value = AnnotationRetention.RUNTIME)
+annotation class GoogleConfig
+

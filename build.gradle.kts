@@ -19,7 +19,11 @@ dependencies {
     implementation("com.google.dagger:dagger:2.38.1")
     kapt("com.google.dagger:dagger-compiler:2.38.1")
     implementation(group = "com.uchuhimo", name = "konf", version = "1.1.2")
-    implementation("com.soywiz.korlibs.korim:korim-jvm:2.3.1")
+    implementation("com.soywiz.korlibs.korim:korim-jvm:2.4.1")
+    implementation("com.google.cloud:google-cloud-firestore:3.0.3")
+    implementation("org.apache.logging.log4j:log4j-api:2.14.1")
+    implementation("org.apache.logging.log4j:log4j-core:2.14.1")
+    implementation("org.slf4j:slf4j-simple:1.6.1")
     testImplementation(kotlin("test"))
 }
 

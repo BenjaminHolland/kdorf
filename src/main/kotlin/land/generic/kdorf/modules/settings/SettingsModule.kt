@@ -10,8 +10,8 @@ import javax.inject.Singleton
 class SettingsModule {
     @Provides
     @Singleton
-    @SecureConfig
+    @DiscordConfig
     fun provideSecureSettings() =
-        Config { addSpec(SecureConfigSpec) }.enable(Feature.FAIL_ON_UNKNOWN_PATH).from.json.resource("secure.json")
+        Config { addSpec(DiscordConfigSpec) }.enable(Feature.FAIL_ON_UNKNOWN_PATH).from.json.resource("secure/discord.json")
 
 }

@@ -5,15 +5,16 @@ import com.google.cloud.firestore.Firestore
 import com.google.cloud.firestore.FirestoreOptions
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
 import javax.inject.Singleton
 
 
 @Module
 class FirestoreModule {
     private val projectId = "dorfbot-chainlink"
-    @Binds
+    @Provides
     @Singleton
-    fun bindFirestore():Firestore{
+    fun provideFirestore():Firestore{
         val firestoreOptions = FirestoreOptions.getDefaultInstance().toBuilder()
             .setProjectId(projectId)
             .setCredentials(GoogleCredentials.getApplicationDefault())
