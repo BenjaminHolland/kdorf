@@ -1,4 +1,5 @@
 src/main/resources/secure.json
+src/main/resources/secure
 .gradle
 .idea
 build
